@@ -12,6 +12,28 @@
 
 #include "./includes/ft_fractol.h"
 
+void	change_color(int keycode, t_mlx_ptr *mlx)
+{
+	if (keycode == 8)
+	{
+		if (mlx->color == 0xFFFFFF)
+			mlx->color = 0x2A0FFF;
+		else if (mlx->color == 0x2A0FFF)
+			mlx->color = 0x590e0e;
+		else if (mlx->color == 0x590e0e)
+			mlx->color = 0x0b192a;
+		else
+			mlx->color = 0xFFFFFF;
+	}
+	else
+	{
+		if (mlx->c_color == 0x000000)
+			mlx->c_color = 0xFFFFFF;
+		else
+			mlx->c_color = 0x000000;
+	}
+}
+
 int				goaway(void)
 {
 	// system("leaks fractol");
@@ -28,9 +50,9 @@ void	pixel_put_to_image(t_mlx_ptr *mlx, int x, int y, int color)
 void	put_color(t_mlx_ptr *mlx)
 {
 	if (mlx->iter >= mlx->max_iter)
-		pixel_put_to_image(mlx, mlx->x,mlx->y, 0x000000);
+		pixel_put_to_image(mlx, mlx->x,mlx->y, mlx->c_color);
 	else
-		pixel_put_to_image(mlx, mlx->x,mlx->y,  0x2A0FFF * mlx->iter);
+		pixel_put_to_image(mlx, mlx->x,mlx->y, mlx->color * mlx->iter);
 }
 
 void	print_burning_ship(t_mlx_ptr *mlx)

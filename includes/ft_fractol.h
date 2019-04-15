@@ -41,6 +41,7 @@ typedef struct			s_mlx
 	void				*img;
 	int					*img_ptr;
 	int					color;
+	int					c_color;
 	int					x;
 	int					y;
 	int					mouse_on_off;
@@ -83,5 +84,8 @@ void					*ft_memcpy(void *dst, void *src, size_t n);
 void					ft_putstr(char *s);
 int						ft_strcmp(char *s1, char *s2);
 void					ft_bzero(void *str, size_t n);
+
+void					change_color(int keycode, t_mlx_ptr *mlx);
+
 #endif
 

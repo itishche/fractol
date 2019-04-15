@@ -38,6 +38,8 @@ int		key_function(int keycode, t_mlx_ptr *mlx)
 		else
 			mlx->mouse_on_off = 1;
 	}
+	if (keycode == 8 || keycode == 9)
+		change_color(keycode, mlx);
 	if ((keycode >= 18 && keycode <= 23) || keycode == 26)
 		key_function2(keycode, mlx);
 	if (keycode == 24 || keycode == 27)

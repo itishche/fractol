@@ -73,7 +73,8 @@ void	init_mlx_struct(t_mlx_ptr *mlx, char **argv)
 		init_julia(mlx);	
 	else
 		init_mandelbrot(mlx);
-	
+	mlx->color = 0xFFFFFF;
+	mlx->c_color = 0x000000;
 }
 
 int		main(int argc, char **argv)
